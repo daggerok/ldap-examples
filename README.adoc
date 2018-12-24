@@ -1,0 +1,55 @@
+= ldap-examples image:https://travis-ci.org/daggerok/ldap-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/ldap-examples"]
+
+//tag::content[]
+
+== plain
+
+.1) start OpenLDAP server in docker
+[source,bash]
+----
+docker-compose up
+----
+
+.2) open phpldapadmin with `Login DN` / `password`: `cn=admin,dc=example,dc=org` / `admin`
+
+.3) turn into server shell
+[source,bash]
+----
+docker exec -it openldap bash
+----
+
+.4) first search
+[source,bash]
+----
+# docker exec openldap
+ldapsearch   -b dc=example,dc=org -D cn=admin,dc=example,dc=org -w admin     objectClass=*
+# ldapsearch -b $where            -D $byWhoom                   -w $password $what
+----
+
+.5) first add
+[source,bash]
+----
+# apt update -y ; apt install vim -y --no-install-recommends
+# cat /tmp/data.ldif
+dn: dc=example,dc=org
+objectClass: dcObject
+objectClass: organization
+dc: daggerok
+o: Maksimko
+ldapadd   -D cn=admin,dc=example,dc=org -w admin     -f /tmp/data.ldif
+# ldapadd -D $byWhoom                   -w $password -f $pathToFile
+----
+
+.last) cleanup docker
+[source,bash]
+----
+docker-compose down -v
+----
+
+//end::content[]
+
+links:
+
+- link:https://github.com/osixia/docker-openldap[GitHub: osixia/docker-openldap]
+- link:https://www.youtube.com/playlist?list=PLfO6SFqcY2PrDR5yct96n4qfgMmh6g0eP[YouTube playlist: Getting Familiar with OpenLDAP]
+- link:https://doubleoctopus.com/security-wiki/protocol/lightweight-directory-access-protocol/[Secret Security Wiki: LDAP]
