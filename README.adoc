@@ -53,3 +53,6 @@ links:
 - link:https://github.com/osixia/docker-openldap[GitHub: osixia/docker-openldap]
 - link:https://www.youtube.com/playlist?list=PLfO6SFqcY2PrDR5yct96n4qfgMmh6g0eP[YouTube playlist: Getting Familiar with OpenLDAP]
 - link:https://doubleoctopus.com/security-wiki/protocol/lightweight-directory-access-protocol/[Secret Security Wiki: LDAP]
+- link:https://github.com/spring-projects/spring-ldap/tree/master/samples[GitHub: Spring LDAP samples]
+- link:https://docs.spring.io/spring-ldap/docs/current/reference/[Spring LDAP Reference]
+- link:https://spring.io/guides/gs/authenticating-ldap/[Spring IO Blog LDAP Security example]
