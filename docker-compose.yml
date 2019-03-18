@@ -85,7 +85,7 @@ services:
       #LDAP_REPLICATION_DB_SYNCPROV: 'binddn="cn=admin,$LDAP_BASE_DN" bindmethod=simple credentials=$LDAP_ADMIN_PASSWORD searchbase="$LDAP_BASE_DN' type=refreshAndPersist interval=00:00:00:10 retry="60 +" timeout=1 starttls=critical'
       #LDAP_REPLICATION_HOSTS: "#PYTHON2BASH:['ldap://ldap.example.org','ldap://ldap2.example.org']"
       KEEP_EXISTING_CONFIG: 'false'
-      LDAP_REMOVE_CONFIG_AFTER_SETUP: 'true'
+      LDAP_REMOVE_CONFIG_AFTER_SETUP: 'false'
       LDAP_SSL_HELPER_PREFIX: 'ldap'
     ports:
       - '389:389'
@@ -100,7 +100,7 @@ services:
     depends_on:
       - openldap
     ports:
-#      - '443:443'
+      #- '443:443'
       - '80:80'
 
 volumes:
