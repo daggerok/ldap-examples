@@ -54,8 +54,9 @@
 
 version: '2'
 services:
+  # read: https://github.com/osixia/docker-phpLDAPadmin
   openldap:
-    image: osixia/openldap
+    image: osixia/openldap:1.1.8
     command: --copy-service
     volumes:
       - config:/etc/ldap/slapd.d
@@ -90,8 +91,9 @@ services:
     ports:
       - '389:389'
       - '636:636'
+  # read: https://github.com/osixia/docker-phpLDAPadmin#advanced-user-guide
   phpldapadmin:
-    image: osixia/phpldapadmin
+    image: osixia/phpldapadmin:0.7.2
     environment:
       PHPLDAPADMIN_LDAP_HOSTS: openldap
       PHPLDAPADMIN_HTTPS: 'false'
